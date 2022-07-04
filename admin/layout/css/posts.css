@@ -1,0 +1,17 @@
+:root {
+  --main-color: #ef3d2b;
+  --secondry-color: #fb7031;
+  --black-color: #121212;
+  --white-color: #fafafa;
+  --grey-1-color: rgb(53, 50, 50);
+  --grey-2-color: #1e1e24;
+  --main-box-shadow-1: 0px 8px 19px 0px rgba(28, 13, 13, 0.75);
+  --main-transition: all 0.4s ease-in-out;
+}
+.posts-container {
+  display: flex;
+  gap: 20px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}

@@ -1,0 +1,283 @@
+elseif ($control == 'TBody') {
+    $traineeID = $_GET['traineeID'];
+    $stmt = $conn->prepare("SELECT * FROM trainees
+                                INNER JOIN traineesbody
+                                ON trainees.traineeID=traineesbody.traineeID
+                                WHERE trainees.traineeID=?");
+    $stmt->execute(array($traineeID));
+    $row = $stmt->fetch();
+?>
+    <div class="container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <?php if (!empty($row)) { ?>
+            <div class="content">
+                <div class="content-info">
+                    <div class="label">
+                        <span>Trainee Name:</span><span> <?php echo $row['traineeName']; ?></span>
+                    </div>
+                    <div class="label">
+                        <span>Trainee Weight:</span><span> <?php echo $row['weight']; ?></span>
+                    </div>
+                    <div class="label">
+                        <span>Trainee Height:</span><span> <?php echo $row['height']; ?></span>
+                    </div>
+                    <div class="label">
+                        <span>trainee Age:</span><span> <?php echo $row['age']; ?></span>
+                    </div>
+                    <div class="label">
+                        <span>trainee Health State:</span><span> <?php echo $row['healthState']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <a class='btn btn-warning' href="trainees.php?control=editBody&traineeID=<?php echo $traineeID; ?>">edit body information</a>
+            <a href="trainees.php?control=view&traineeID=<?php echo $traineeID; ?>" class="btn btn-primary">back</a>
+    </div>
+<?php
+        } else {
+            echo "
+                <div class='alert alert-info'>
+                    there is no info
+                </div>
+                <a class='btn btn-warning' href='trainees.php?control=addBody&traineeID=" . $traineeID . "'>add body information</a>
+                ";
+        }
+?>
+</div>
+
+
+
+<?php
+} elseif ($control == 'THealth') {
+    $traineeID = $_GET['traineeID'];
+    $stmt = $conn->prepare("SELECT * FROM trainees
+                                INNER JOIN traineesmedical
+                                ON trainees.traineeID =traineesmedical.traineeID
+                                WHERE trainees.traineeID=?");
+    $stmt->execute(array($traineeID));
+    $row = $stmt->fetch();
+?>
+    <div class="container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <?php if (!empty($row)) { ?>
+            <div class="content">
+                <div class="content-info">
+
+                    <div class="label">
+                        <span>Traineer Medical DrugName:</span><span> <?php echo $row['medicalDrugName']; ?></span>
+                    </div>
+                    <div class="label">
+                        <span>Traineer Medical DrugDoses:</span><span> <?php echo $row['medicalDrugDoses']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <a class='btn btn-warning' href="trainees.php?control=editHealth&traineeID=<?php echo $traineeID; ?>">edit health information</a>
+            <a href="trainees.php?control=view&traineeID=<?php echo $traineeID; ?>" class="btn btn-primary">back</a>
+    </div>
+<?php
+        } else {
+            echo "<div class='alert alert-info'>there is no info
+                    </div>
+                    <a class='btn btn-warning' href='trainees.php?control=addHealth&traineeID=" . $traineeID . "'>add health information</a>";
+        }
+?>
+</div>
+<?php
+} elseif ($control == 'addBody') { ?>
+    <div class="container form-container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <div class="form add-form">
+            <h2 class="login">add body information</h2>
+            <form action="trainees.php?control=addB" method="POST">
+                <div class="input-field">
+                    <label for="">trainee weight:</label>
+                    <input class="input text-input" type="number" name="weight" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee height:</label>
+                    <input class="input text-input" type="number" name="height" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee birth date:</label>
+                    <input class="input" type="date" name="age" placeholder="Enter The Mobile Number">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee health state:</label>
+                    <input class="input" type="text" name="healthState" placeholder="Enter The Mobile Number">
+                </div>
+                <div class="input-field">
+                    <input class="input" type="text" name="traineeID" hidden value="<?php echo $_GET['traineeID']; ?>">
+                </div>
+
+
+                <div class="input-field">
+                    <input class="submit-btn" type="submit" name="add-body">
+                </div>
+            </form>
+        </div>
+    </div>
+
+<?php
+} elseif ($control == 'addHealth') {  ?>
+
+    <div class="container form-container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <div class="form add-form">
+            <h2 class="login">add health information</h2>
+            <form action="trainees.php?control=addH" method="POST">
+                <div class="input-field">
+                    <label for="">trainee drug name:</label>
+                    <input class="input" type="text" name="medicalDrugName" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee drug doses:</label>
+                    <input class="input" type="number" name="medicalDrugDoses" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <input class="input" type="text" name="traineeID" hidden value="<?php echo $_GET['traineeID']; ?>">
+                </div>
+                <div class="input-field">
+                    <input class="submit-btn" type="submit" name="add-medical">
+                </div>
+            </form>
+        </div>
+    </div>
+<?php
+} elseif ($control == 'addB') {
+    if (isset($_POST['add-body'])) {
+        if (
+            !empty($_POST['weight'])
+            && !empty($_POST['height'])
+            && !empty($_POST['age'])
+            && !empty($_POST['healthState'])
+            && !empty($_POST['traineeID'])
+        ) {
+            $weight = $_POST['weight'];
+            $height = $_POST['height'];
+            $age = $_POST['age'];
+            $healthState = $_POST['healthState'];
+            $traineeID = $_POST['traineeID'];
+            $stmt = $conn->prepare("INSERT INTO traineesbody(weight,height,age,healthState,traineeID)
+                                    VALUES(?,?,?,?,?)");
+            $stmt->execute(array($weight, $height, $age, $healthState, $traineeID));
+            $row = $stmt->rowCount();
+            if ($row > 0) {
+                $theMessage = '<div class="container"><div class="alert alert-success"> the Trainee Body has been inserted successfully</div></div>';
+                redirecthome($theMessage, '?control=manage');
+            }
+        }
+    }
+} elseif ($control == 'addH') {
+    if (isset($_POST['add-medical'])) {
+        if (
+            !empty($_POST['medicalDrugName'])
+            && !empty($_POST['medicalDrugDoses'])
+            && !empty($_POST['traineeID'])
+
+        ) {
+            $medicalDrugName = $_POST['medicalDrugName'];
+            $medicalDrugDoses = $_POST['medicalDrugDoses'];
+            $traineeID =  $_POST['traineeID'];
+            $stmt = $conn->prepare("INSERT INTO traineesmedical(medicalDrugName,medicalDrugDoses,traineeID)
+                                    VALUES(?,?,?)");
+            $stmt->execute(array($medicalDrugName, $medicalDrugDoses, $traineeID));
+            $row = $stmt->rowCount();
+            if ($row > 0) {
+                $theMessage = '<div class="container"><div class="alert alert-success"> the traineesmedical has been inserted successfully</div></div>';
+                redirecthome($theMessage, '?control=manage');
+            }
+        }
+    }
+} elseif ($control == 'editBody') {
+    $traineeID = $_GET['traineeID'];
+    $stmt = $conn->prepare("SELECT * FROM trainees
+                                INNER JOIN traineesbody
+                                ON trainees.traineeID=traineesbody.traineeID 
+                                WHERE
+                                trainees.traineeID=?");
+    $stmt->execute(array($traineeID));
+    $row = $stmt->fetch();
+?>
+    <div class="container form-container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <div class="form add-form">
+            <h2 class="login">edit body information</h2>
+            <form action="trainees.php?control=editTBody" method="POST">
+                <div class="input-field">
+                    <label for="">trainee weight:</label>
+                    <input class="input text-input" type="number" value="<?php echo $row['weight'] ?>" name="traineeWeight" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee height:</label>
+                    <input class="input text-input" type="number" name="height" value="<?php echo $row['height'] ?>" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee birth date:</label>
+                    <input class="input" type="date" name="age" value="<?php echo $row['age']; ?>" placeholder="Enter The Mobile Number">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee health state:</label>
+                    <input class="input" type="text" name="healthState" value="<?php echo $row['healthState']; ?>" placeholder="Enter The Mobile Number">
+                </div>
+
+                <div class="input-field">
+                    <input class="submit-btn" type="submit" name="update-TBody">
+                </div>
+            </form>
+        </div>
+    </div>
+<?php
+} elseif ($control == 'editHealth') { ?>
+    <div class="container form-container">
+        <div class="header-sec">
+            <div class="icon"><i class="fas fa-bars"></i></div>
+            <a href="logout.php" class="logut-btn">
+                logout<i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <div class="form add-form">
+            <h2 class="login">edit health information</h2>
+            <form action="trainees.php?control=addB" method="POST">
+                <div class="input-field">
+                    <label for="">trainee drug name:</label>
+                    <input class="input" type="text" name="traineeDrugName" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <label for="">trainee drug doses:</label>
+                    <input class="input" type="number" name="traineeDrugDoses" placeholder="name must be higher than 6 characters">
+                </div>
+                <div class="input-field">
+                    <input class="submit-btn" type="submit" name="add-post">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+<img src="'.$_SESSION['pic'].'" alt="">

@@ -1,0 +1,346 @@
+/*! general settings  */
+:root {
+  --bg-color: rgb(26,26,26);
+  --main-color: #ef3d2b;
+  --grey-dark-color: rgb(36,36,36);
+  --secondry-color: #fb7031;
+  --black-color: #121212;
+  --white-color: #fafafa;
+  --grey-1-color: rgb(53, 50, 50);
+  --grey-2-color: #1e1e24;
+  --main-box-shadow: 1px 5px 10px rgba(255, 255, 255, 0.3);
+  --main-box-shadow-2: 2px 6px 61px -35px rgba(168,168,168,0.72);
+  --main-transition: all .4s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.7;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  transition: var(--main-transition);
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+a:hover {
+  color: var(--white-color);
+}
+ul,
+ol,
+li,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: var(--bg-color);
+  width: 100%;
+  min-height: 100vh;
+}
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+  background-color: var(--main-color);
+}
+
+
+
+/* main title section  */
+.main-title-sec {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-title-sec h2 {
+  border-left: 5px solid var(--main-color);
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.main-title-sec .add-btn {
+  background-color: var(--secondry-color);
+  padding: 7px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  color: var(--white-color);
+}
+/* main title section  */
+
+/* table section  */
+.bills-table {
+  width: 90%;
+  margin: 10px auto;
+}
+th,
+td {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-collapse: collapse;
+  border: 1px solid rgb(163, 163, 163);
+  padding: 10px 10px;
+}
+th {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  text-align: center;
+  font-size: 17px;
+}
+/* table section  */
+
+/* profile card section  */
+.profile-cards-container,
+.small-posts-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.profile-card {
+  width: 300px;
+  background-color: var(--grey-dark-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 400px;
+  gap: 20px;
+}
+.profile-card .images {
+  position: relative;
+}
+.card-bg {
+  width: 100%;
+  filter: blur(10px);
+  height: 200px;
+}
+.card-img {
+  position: absolute;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  left: 50%;
+  object-fit: cover;
+  object-position: top;
+  bottom: -60px;
+  transform: translateX(-50%);
+}
+.profile-card .content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  flex-direction: column;
+  position: relative;
+  gap: 20px;
+}
+.content .title {
+  align-self: center;
+}
+/* profile card section  */
+
+/* small posts cards  */
+.small-post-card {
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 300px;
+  background-color: var(--grey-dark-color);
+}
+.small-post-card .image {
+  height: 230px;
+  position: relative;
+}
+.image .type {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  font-weight: 700;
+}
+.small-post-card .image img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.small-post-card .content {
+  width: 100%;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.small-post-card .content div {
+  width: 100%;
+}
+.small-post-card .content .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.small-post-card .content .desc {
+  opacity: .6;
+}
+.small-post-card .content .ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.content .ctrl span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.2rem;
+  opacity: .7;
+}
+/* small posts cards  */
+
+/* posts cards container  */
+.post-card {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: var(--grey-dark-color);
+  border-radius: 20px;
+}
+.post-card .image {
+  flex: 1;
+}
+.post-card .content {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.post-card .image img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 100%;
+}
+.post-card .title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.post-type {
+  padding: 5px 25px;
+  color: var(--secondry-color);
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+.post-card .desc {
+  opacity: .7;
+}
+.post-card > .content {
+  display: flex;
+}
+.content .date {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.content .date span{
+  font-size: 1rem;
+  font-weight: 400;
+}
+/* posts cards container  */
+
+/* horizontal cards section  */
+.hz-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 20px;
+}
+.hz-card {
+  width: 350px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 20px;
+  background-color: var(--white-color);
+}
+.hz-card .left {
+  color: var(--black-color);
+}
+.left img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  object-fit: cover;
+}
+.hz-card .left {
+  color: var(--black-color);
+  flex: 1;
+}
+.left .logo {
+  padding: 20px;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  flex: 1;
+  background: linear-gradient(to right, var(--main-color), var(--secondry-color));
+}
+.hz-card .right {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+.hz-card .name {
+  color: var(--black-color);
+}
+/* horizontal cards section  */
+
+/* media queres  */
+@media (max-width: 768px) {
+  .post-card {
+    flex-direction: column;
+  }
+}
+/* media queres  */

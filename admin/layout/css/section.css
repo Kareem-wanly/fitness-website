@@ -1,0 +1,48 @@
+:root {
+  --background-color: #1b1b25;
+  --main-color: #ef3d2b;
+  --secondry-color: #fb7031;
+  --black-color: #121212;
+  --white-color: #fafafa;
+  --grey-1-color: rgb(53, 50, 50);
+  --grey-2-color: #1e1e24;
+  --main-box-shadow-1: 0px 8px 19px 0px rgba(28, 13, 13, 0.75);
+  --main-transition: all 0.4s ease-in-out;
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+/* view section details  */
+.panel {
+  flex: none !important;
+}
+.card {
+}
+.card .name {
+  text-align: center;
+}
+.card .name .section-name {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.7rem !important;
+}
+.card:nth-of-type(odd) .name .section-name {
+  color: var(--main-color);
+}
+.card:nth-of-type(odd):hover .name .section-name,
+.card:nth-of-type(even):hover .name .section-name {
+  color: #fff;
+}
+.card:nth-of-type(even) .name .section-name {
+  color: var(--grey-2-color);
+}
+.approved-trainees {
+  flex: 1 !important;
+}
+@media (min-width: 768px) {
+  .card-container {
+    justify-content: space-evenly !important;
+  }
+}
+
+/* view section details  */

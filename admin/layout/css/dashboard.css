@@ -1,0 +1,86 @@
+:root {
+  --background-color: #1b1b25;
+  --main-color: #ef3d2b;
+  --secondry-color: #fb7031;
+  --black-color: #121212;
+  --white-color: #fafafa;
+  --grey-1-color: rgb(53, 50, 50);
+  --grey-2-color: #1e1e24;
+  --main-box-shadow-1: 0px 8px 19px 0px rgba(28, 13, 13, 0.75);
+  --main-transition: all 0.4s ease-in-out;
+}
+.card-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  padding: 20px;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.card:nth-child(odd) {
+  background: var(--background-color);
+  color: var(--white-color);
+  box-shadow: 0px 8px 19px 0px rgba(28, 13, 13, 0.75);
+}
+.card:nth-child(even) {
+  background: var(--secondry-color);
+  box-shadow: 0px 8px 19px 0px rgba(28, 13, 13, 0.75);
+}
+.card:nth-child(odd):hover,
+.card:nth-of-type(even):hover {
+  transform: translateY(-5px);
+}
+.card:nth-child(odd):hover span i::before {
+  color: var(--secondry-color);
+  font-size: 4rem;
+}
+.card:nth-child(even):hover span i::before {
+  color: var(--grey-2-color);
+  font-size: 4rem;
+}
+.card .name {
+  font-size: 20px;
+  color: var(--white-color);
+}
+.card .num {
+  font-size: 40px;
+  color: var(--white-color);
+}
+.card span,
+.card span i::before {
+  color: var(--white-color);
+  font-size: 3rem;
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    justify-content: space-evenly;
+  }
+  .panel-container {
+    flex-flow: row wrap;
+  }
+  .panel {
+    background-color: #fff;
+  }
+  .card {
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    animation: move 1s ease-in-out;
+  }
+  .card span i {
+    color: #000;
+  }
+}

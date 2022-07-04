@@ -1,0 +1,109 @@
+/* navbar-secion  */
+.navbar-container {
+  display: flex;
+  width: 100%;
+  background-image: linear-gradient(
+    90deg,
+    var(--main-color),
+    var(--secondry-color),
+    var(--main-color)
+  );
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.logo .web-logo {
+  font-size: 2rem;
+}
+.navbar-list,
+.nav-list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.navbar-list {
+  gap: 50px;
+  flex-direction: row;
+}
+.nav-btn {
+  position: relative;
+  padding: 5px 0px;
+}
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: transparent;
+}
+.list-item:hover .nav-btn::before,
+.nav-btn.active::before {
+  background-color: var(--black-color);
+  width: 100%;
+}
+.list-item i::before {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.bar {
+  display: none;
+}
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+}
+.profile-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.list-item:hover i::before {
+  color: var(--black-color);
+}
+/* navbar-section  */
+
+/* media queres  */
+@media (max-width: 768px) {
+  /* navbar section respinsive  */
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  .bar {
+    display: block;
+  }
+  .navbar-list {
+    display: block;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    background-image: linear-gradient(
+      90deg,
+      var(--main-color),
+      var(--secondry-color),
+      var(--main-color)
+    );
+    z-index: 10;
+  }
+  .navbar-list .list-item {
+    padding: 10px 20px;
+  }
+  .navbar-list.active {
+    display: none;
+  }
+}
+/* media queres  */

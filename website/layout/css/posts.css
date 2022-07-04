@@ -1,0 +1,128 @@
+.posts-haeder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-sec .search-bar {
+    width: 300px;
+}
+.search {
+    position: relative;
+    margin: 0 auto;
+}
+.search-feild {
+    width: 100%;
+    padding: 7px 12px;
+    outline: none;
+    color: #fff;
+    border: 1px solid transparent;
+    background-color: rgb(36,36,36);
+}
+.search-feild:focus {
+    border: 1px solid var(--main-color);
+}
+.search-feild::placeholder {
+    color: #fff;
+    opacity: .7;
+}
+.search-btn {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.search-btn i::before {
+    font-size: 1.5rem;
+}
+.search-btn:hover i::before {
+    color: var(--main-color);
+}
+
+/* post comments section  */
+
+.post-comments {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.add-comment {
+    width: 100%;
+}
+.input-field {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+.input {
+    width: 400px;
+    resize: none;
+    padding: 10px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ef3d2b;
+    outline: none;
+}
+.input::placeholder {
+    color: #bbb9b96c;
+}
+.comment-btn {
+    background-color: #ef3d2b;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.comments-con {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.comment {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+.comment .top {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 0 15px;
+}
+.top .content .name {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.top .content .date {
+    opacity: .6;
+}
+.comment .top img {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.comment .bottom {
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+}
+/* post comments section  */
